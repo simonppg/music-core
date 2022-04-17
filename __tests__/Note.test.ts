@@ -46,13 +46,6 @@ test('C0 and D0 are in the same octave', () => {
   expect(c0.isSameOctave(d0)).toBe(true)
 })
 
-test('C0 and D0 are in the same octave', () => {
-  const c0 = new Note('C0')
-  const d0 = new Note('D0')
-
-  expect(c0.isSameOctave(d0)).toBe(true)
-})
-
 test('C0 and D8 are NOT in the same octave', () => {
   const c0 = new Note('C0')
   const d8 = new Note('D8')
