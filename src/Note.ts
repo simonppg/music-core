@@ -49,10 +49,6 @@ export default class Note {
     return this.aOctave
   }
 
-  simpleName(): string {
-    return this.name()
-  }
-
   diatonicPosition(): number {
     return ((this.alphabeticPosition() + 4) % this.DIATONIC_NOTES) + 1
   }

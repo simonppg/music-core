@@ -5,7 +5,6 @@ test('Default note is A 440 Hz', () => {
   expect(note.frequency()).toBe('440.00')
   expect(note.name()).toBe('A')
   expect(note.sciName()).toBe('A4')
-  expect(note.simpleName()).toBe('A')
   expect(note.octave()).toBe(4)
 })
 
@@ -15,7 +14,6 @@ test('Can create sharp notes', () => {
   expect(note.frequency()).toBe('466.16')
   expect(note.name()).toBe('A#')
   expect(note.sciName()).toBe('A#4')
-  expect(note.simpleName()).toBe('A#')
   expect(note.octave()).toBe(4)
 })
 
@@ -25,7 +23,6 @@ test('Can create C2 note', () => {
   expect(note.frequency()).toBe('65.41')
   expect(note.name()).toBe('C')
   expect(note.sciName()).toBe('C2')
-  expect(note.simpleName()).toBe('C')
   expect(note.octave()).toBe(2)
 })
 
@@ -35,7 +32,6 @@ test('Can create C#2 note', () => {
   expect(note.frequency()).toBe('69.30')
   expect(note.name()).toBe('C#')
   expect(note.sciName()).toBe('C#2')
-  expect(note.simpleName()).toBe('C#')
   expect(note.octave()).toBe(2)
 })
 
