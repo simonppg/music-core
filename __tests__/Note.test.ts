@@ -19,6 +19,16 @@ test('Can create sharp notes', () => {
   expect(note.octave()).toBe(4)
 })
 
+test('Can create C2 note', () => {
+  const note = new Note('C2')
+
+  expect(note.frequency()).toBe('65.41')
+  expect(note.name()).toBe('C')
+  expect(note.sciName()).toBe('C2')
+  expect(note.simpleName()).toBe('C')
+  expect(note.octave()).toBe(2)
+})
+
 test('C0 and D0 are in the same octave', () => {
   const c0 = new Note('C0')
   const d0 = new Note('D0')
