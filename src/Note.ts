@@ -7,14 +7,13 @@ export default class Note {
   private A4 = 440.00
 
   constructor(note: string = 'A4') {
-    if(!note)
-      throw new Error('InvalidArgumentException')
-
     const length = note.length
     if(length < 2 || length > 3)
       throw new Error('InvalidArgumentException')
 
     this.noteName = note.charAt(0).toUpperCase()
+    if(this.noteName < 'A' || this.noteName > 'G')
+      throw new Error('InvalidArgumentException')
 
     const numberIndex = length === 2 ? 1 : 2
 
@@ -47,10 +46,6 @@ export default class Note {
 
   octave(): number {
     return this.aOctave
-  }
-
-  simpleName(): string {
-    return this.name()
   }
 
   diatonicPosition(): number {
