@@ -1,4 +1,4 @@
-import Note from "../src/Note";
+import {Note} from "../src/Note";
 
 test('InvalidArgumentException', () => {
   const t1 = () => {
