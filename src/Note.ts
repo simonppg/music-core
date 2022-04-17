@@ -44,4 +44,8 @@ export default class Note {
   diatonicPosition(): number {
     return this.aSciName.diatonicPosition()
   }
+
+  chromaticPosition(): number {
+    return this.aSciName.chromaticPosition()
+  }
 }

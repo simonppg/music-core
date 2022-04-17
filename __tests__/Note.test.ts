@@ -146,3 +146,40 @@ test('Diatonic position of two octaves', () => {
   })
 
 })
+
+test('Chromatic position of two octave', () => {
+  const noteNumbers = [
+    ['c0', 1],
+    ['c#0', 2],
+    ['d0', 3],
+    ['d#0', 4],
+    ['e0', 5],
+    ['f0', 6],
+    ['f#0', 7],
+    ['g0', 8],
+    ['g#0', 9],
+    ['a0', 10],
+    ['a#0', 11],
+    ['b0', 12],
+
+    ['c1', 1],
+    ['c#1', 2],
+    ['d1', 3],
+    ['d#1', 4],
+    ['e1', 5],
+    ['f1', 6],
+    ['f#1', 7],
+    ['g1', 8],
+    ['g#1', 9],
+    ['a1', 10],
+    ['a#1', 11],
+    ['b1', 12],
+  ]
+
+  noteNumbers.forEach(item => {
+    const sciName = new Note(item[0])
+
+    expect(sciName.chromaticPosition()).toBe(item[1])
+  })
+
+})
