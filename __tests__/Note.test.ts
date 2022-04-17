@@ -183,3 +183,37 @@ test('Chromatic position of two octave', () => {
   })
 
 })
+
+test('Calculate distance in semi-tones', () => {
+  const notes = [
+    ['a3', -12],
+    ['a#3', -11],
+    ['b3', -10],
+
+    ['c4', -9],
+    ['c#4', -8],
+    ['d4', -7],
+    ['d#4', -6],
+    ['e4', -5],
+    ['f4', -4],
+    ['f#4', -3],
+    ['g4', -2],
+    ['g#4', -1],
+    ['a4', 0],
+    ['a#4', 1],
+    ['b4', 2],
+
+    ['c5', 3],
+    ['c#5', 4],
+    ['d5', 5],
+  ]
+
+  notes.forEach((item) => {
+    const a4 = new Note('A4')
+    const note = new Note(item[0])
+
+    expect(a4.semiToneDistance(note)).toBe(item[1])
+  })
+
+})
+

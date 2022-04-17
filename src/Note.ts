@@ -48,4 +48,8 @@ export default class Note {
   chromaticPosition(): number {
     return this.aSciName.chromaticPosition()
   }
+
+  semiToneDistance(note: Note): number {
+    return this.aSciName.semiToneDistance(note.aSciName)
+  }
 }
