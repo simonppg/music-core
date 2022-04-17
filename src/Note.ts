@@ -1,4 +1,4 @@
-export default class Note {
+export class Note {
   private noteName: string
   private aOctave: number
   private isSharp: boolean
