@@ -29,6 +29,16 @@ test('Can create C2 note', () => {
   expect(note.octave()).toBe(2)
 })
 
+test('Can create C#2 note', () => {
+  const note = new Note('C#2')
+
+  expect(note.frequency()).toBe('69.30')
+  expect(note.name()).toBe('C#')
+  expect(note.sciName()).toBe('C#2')
+  expect(note.simpleName()).toBe('C#')
+  expect(note.octave()).toBe(2)
+})
+
 test('C0 and D0 are in the same octave', () => {
   const c0 = new Note('C0')
   const d0 = new Note('D0')
