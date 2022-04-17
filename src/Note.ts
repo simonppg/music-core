@@ -40,4 +40,8 @@ export default class Note {
     const noteAsciiCode = this.aSciName.getNoteName().charCodeAt(0)
     return (noteAsciiCode % cAsciiCode) + 1
   }
+
+  diatonicPosition(): number {
+    return this.aSciName.diatonicPosition()
+  }
 }

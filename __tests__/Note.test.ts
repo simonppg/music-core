@@ -119,3 +119,30 @@ test('Alphabetical position of two octaves', () => {
     expect(sciName.alphabeticPosition()).toBe(item[1])
   })
 })
+
+test('Diatonic position of two octaves', () => {
+  const noteNumbers = [
+    ['c0', 1],
+    ['d0', 2],
+    ['e0', 3],
+    ['f0', 4],
+    ['g0', 5],
+    ['a0', 6],
+    ['b0', 7],
+
+    ['c1', 1],
+    ['d1', 2],
+    ['e1', 3],
+    ['f1', 4],
+    ['g1', 5],
+    ['a1', 6],
+    ['b1', 7],
+  ]
+
+  noteNumbers.forEach(item => {
+    const sciName = new Note(item[0])
+
+    expect(sciName.diatonicPosition()).toBe(item[1])
+  })
+
+})
