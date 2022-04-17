@@ -4,8 +4,8 @@ export default class Note {
   private aSciName: SciName
   private A4 = 440.00
 
-  constructor(sciName: SciName = new SciName()) {
-    this.aSciName = sciName
+  constructor(note: string = 'A4') {
+    this.aSciName = new SciName(note)
   }
 
   sciName(): string {

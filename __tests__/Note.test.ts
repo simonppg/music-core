@@ -8,15 +8,22 @@ test('Default note is A 440 Hz', () => {
 })
 
 test('C0 and D0 are in the same octave', () => {
-  const c0 = new Note(new SciName('C0'))
-  const d0 = new Note(new SciName('D0'))
+  const c0 = new Note('C0')
+  const d0 = new Note('D0')
+
+  expect(c0.isSameOctave(d0)).toBe(true)
+})
+
+test('C0 and D0 are in the same octave', () => {
+  const c0 = new Note('C0')
+  const d0 = new Note('D0')
 
   expect(c0.isSameOctave(d0)).toBe(true)
 })
 
 test('C0 and D8 are NOT in the same octave', () => {
-  const c0 = new Note(new SciName('C0'))
-  const d8 = new Note(new SciName('D8'))
+  const c0 = new Note('C0')
+  const d8 = new Note('D8')
 
   expect(c0.isSameOctave(d8)).toBe(false)
 })
@@ -47,7 +54,7 @@ test('Octaves frequency', () => {
   notes.forEach(item => {
     const sciName = item[0];
     const frequency = item[1];
-    const note = new Note(new SciName(sciName));
+    const note = new Note(sciName);
 
     expect(note.sciName()).toBe(sciName)
     expect(note.frequency()).toBe(frequency)
