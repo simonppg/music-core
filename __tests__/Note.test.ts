@@ -1,10 +1,12 @@
 import Note from "../src/Note";
-import SciName from "../src/SciName";
 
 test('Default note is A 440 Hz', () => {
-  expect(new Note().frequency()).toBe('440.00')
-  expect(new Note().name()).toBe('A')
-  expect(new Note().sciName()).toBe('A4')
+  const note = new Note();
+  expect(note.frequency()).toBe('440.00')
+  expect(note.name()).toBe('A')
+  expect(note.sciName()).toBe('A4')
+  expect(note.simpleName()).toBe('A')
+  expect(note.octave()).toBe(4)
 })
 
 test('C0 and D0 are in the same octave', () => {

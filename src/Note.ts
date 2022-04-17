@@ -26,4 +26,12 @@ export default class Note {
   isSameOctave(note: Note): boolean {
     return this.aSciName.isSameOctave(note.aSciName)
   }
+
+  octave(): number {
+    return this.aSciName.octave()
+  }
+
+  simpleName(): string {
+    return this.aSciName.simpleName()
+  }
 }
