@@ -9,6 +9,16 @@ test('Default note is A 440 Hz', () => {
   expect(note.octave()).toBe(4)
 })
 
+test('Can create sharp notes', () => {
+  const note = new Note('A#4')
+
+  expect(note.frequency()).toBe('466.16')
+  expect(note.name()).toBe('A#')
+  expect(note.sciName()).toBe('A#4')
+  expect(note.simpleName()).toBe('A#')
+  expect(note.octave()).toBe(4)
+})
+
 test('C0 and D0 are in the same octave', () => {
   const c0 = new Note('C0')
   const d0 = new Note('D0')
