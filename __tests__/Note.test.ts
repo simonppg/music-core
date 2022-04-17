@@ -1,5 +1,19 @@
 import Note from "../src/Note";
 
+test('InvalidArgumentException', () => {
+  const t1 = () => {
+    new Note('A#45')
+  }
+
+  expect(t1).toThrow(new Error('InvalidArgumentException'))
+
+  const t2 = () => {
+    new Note('H0')
+  }
+
+  expect(t2).toThrow(new Error('InvalidArgumentException'))
+})
+
 test('Default note is A 440 Hz', () => {
   const note = new Note();
   expect(note.frequency()).toBe('440.00')
