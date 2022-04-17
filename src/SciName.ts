@@ -21,6 +21,10 @@ export default class SciName {
     this.isSharp = length === 3
   }
 
+  getNoteName(){
+    return this.noteName
+  }
+
   simpleName(): string {
     if(this.isSharp)
       return this.noteName +"#"

@@ -34,4 +34,10 @@ export default class Note {
   simpleName(): string {
     return this.aSciName.simpleName()
   }
+
+  alphabeticPosition() {
+    const cAsciiCode = 'A'.charCodeAt(0)
+    const noteAsciiCode = this.aSciName.getNoteName().charCodeAt(0)
+    return (noteAsciiCode % cAsciiCode) + 1
+  }
 }

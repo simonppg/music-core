@@ -93,3 +93,29 @@ test('Octaves frequency', () => {
   })
 
 })
+
+test('Alphabetical position of two octaves', () => {
+  const noteNumbers = [
+    ['a0', 1],
+    ['b0', 2],
+    ['c0', 3],
+    ['d0', 4],
+    ['e0', 5],
+    ['f0', 6],
+    ['g0', 7],
+
+    ['a1', 1],
+    ['b1', 2],
+    ['c1', 3],
+    ['d1', 4],
+    ['e1', 5],
+    ['f1', 6],
+    ['g1', 7],
+  ]
+
+  noteNumbers.forEach(item => {
+    const sciName = new Note(item[0])
+
+    expect(sciName.alphabeticPosition()).toBe(item[1])
+  })
+})
