@@ -53,6 +53,13 @@ test('C0 and D8 are NOT in the same octave', () => {
   expect(c0.isSameOctave(d8)).toBe(false)
 })
 
+test('C0 and D4 are NOT in the same octave', () => {
+  const c0 = new Note('C0')
+  const d4 = new Note('D4')
+
+  expect(c0.isSameOctave(d4)).toBe(false)
+})
+
 test('Octaves frequency', () => {
   const notes = [
     ['A0' ,'27.50'],
