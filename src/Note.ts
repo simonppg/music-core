@@ -11,7 +11,7 @@ export class Note {
     if(length < 2 || length > 3)
       throw new Error('InvalidArgumentException')
 
-    this.noteName = note.charAt(0).toUpperCase()
+    this.noteName = note.charAt(0)
     if(this.noteName < 'A' || this.noteName > 'G')
       throw new Error('InvalidArgumentException')
 
