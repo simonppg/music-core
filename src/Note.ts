@@ -1,3 +1,5 @@
+import {NoteValidator} from "./NoteValidator"
+
 export class Note {
   private noteName: string
   private aOctave: number
@@ -5,6 +7,7 @@ export class Note {
   private DIATONIC_NOTES = 7
   private CHROMATIC_NOTES = 12
   private A4 = 440.00
+  private static noteValidator = new NoteValidator()
 
   constructor(note: string = 'A4') {
     const length = note.length
@@ -12,7 +15,7 @@ export class Note {
       throw new Error('InvalidArgumentException')
 
     this.noteName = note.charAt(0).toUpperCase()
-    if(this.noteName < 'A' || this.noteName > 'G')
+    if(!Note.noteValidator.isValid(this.noteName))
       throw new Error('InvalidArgumentException')
 
     const numberIndex = length === 2 ? 1 : 2
