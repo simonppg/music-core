@@ -19,7 +19,7 @@ export class Frequency {
     return this.aFrequency
   }
 
-  semiToneDistance(frequency: Frequency): number {
+  distance(frequency: Frequency): number {
     const f1 = parseFloat(frequency.frequency())
     const f2 = parseFloat(this.aFrequency)
     const distance = (12 * (Math.log2(f2 / f1)))  / Math.log2(2)

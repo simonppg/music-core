@@ -45,10 +45,10 @@ test('Shift frequency', ()=> {
     const f2 = new Frequency(freq)
 
     expectedClose(A4.shift(semiTones).frequency(), f2.frequency(), precision)
-    expect(A4.semiToneDistance(f2)).toBe(inverseSemiTone)
+    expect(A4.distance(f2)).toBe(inverseSemiTone)
 
     expectedClose(f2.shift(semiTones * -1).frequency(), A4.frequency(), precision)
-    expect(f2.semiToneDistance(A4)).toBe(semiTones)
+    expect(f2.distance(A4)).toBe(semiTones)
   })
 })
 
