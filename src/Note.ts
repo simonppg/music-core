@@ -1,3 +1,4 @@
+import {Frequency} from "./Frequency"
 import {NoteValidator} from "./NoteValidator"
 
 export class Note {
@@ -6,7 +7,7 @@ export class Note {
   private isSharp: boolean
   private DIATONIC_NOTES = 7
   private CHROMATIC_NOTES = 12
-  private A4 = 440.00
+  private static A4 = '440.00'
   private static noteValidator = new NoteValidator()
 
   constructor(note: string = 'A4') {
@@ -38,9 +39,9 @@ export class Note {
 
   frequency(): string {
     const a4 = new Note('A4')
-    const semiToneDistance = a4.semiToneDistance(this)
-    const frequency = this.A4 * Math.pow(2, semiToneDistance / 12)
-    return frequency.toFixed(2)
+    const semiTones = a4.semiToneDistance(this)
+    const frequency = new Frequency(Note.A4)
+    return frequency.shift(semiTones).frequency()
   }
 
   isSameOctave(note: Note): boolean {
