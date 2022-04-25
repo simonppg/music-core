@@ -231,3 +231,26 @@ test('Calculate distance in semi-tones', () => {
 
 })
 
+test('Shift notes', ()=>{
+  const shifts = [
+    [1, 'C#0'],
+    [2, 'D0'],
+    [3, 'D#0'],
+    [4, 'E0'],
+    [5, 'F0'],
+    [6, 'F#0'],
+    [7, 'G0'],
+    [8, 'G#0'],
+    [9, 'A0'],
+    [10, 'A#0'],
+    [11, 'B0'],
+  ]
+
+  shifts.forEach(shift =>{
+    const c = new Note('C0')
+    const note = new Note(shift[1] as string)
+
+    expect(c.shift(shift[0] as number).name()).toBe(note.name())
+  })
+})
+

@@ -9,6 +9,7 @@ export class Note {
   private static CHROMATIC_NOTES = 12
   private static A4 = '440.00'
   private static noteValidator = new NoteValidator()
+  private static NOTES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 
   constructor(note: string = 'A4') {
     const length = note.length
@@ -75,4 +76,18 @@ export class Note {
     return  chromaticDistance + octaveDistance * Note.CHROMATIC_NOTES
   }
 
+  shift(semiTones: number) : Note {
+    const newPos = this.chromaticPosition() + semiTones
+    const note = this.fromCromaticPosition(newPos)
+    console.log({
+      chromaticPosition:this.chromaticPosition(),
+      note
+    });
+    
+    return new Note(note+0)
+  }
+
+  private fromCromaticPosition(pos: number): string{
+    return Note.NOTES[pos-1]
+  }
 }
