@@ -216,6 +216,10 @@ test('Calculate distance in semi-tones', () => {
     ['C5', 3],
     ['C#5', 4],
     ['D5', 5],
+
+    // Edge cases
+    ['A0', -48],
+    ['A8', 48],
   ]
 
   notes.forEach((item) => {
