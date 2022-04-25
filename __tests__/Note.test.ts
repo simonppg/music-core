@@ -226,7 +226,7 @@ test('Calculate distance in semi-tones', () => {
     const a4 = new Note('A4')
     const note = new Note(item[0])
 
-    expect(a4.semiToneDistance(note)).toBe(item[1])
+    expect(a4.distance(note)).toBe(item[1])
   })
 
 })

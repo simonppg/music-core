@@ -39,7 +39,7 @@ export class Note {
 
   frequency(): string {
     const a4 = new Note('A4')
-    const semiTones = a4.semiToneDistance(this)
+    const semiTones = a4.distance(this)
     const frequency = new Frequency(Note.A4)
     return frequency.shift(semiTones).frequency()
   }
@@ -69,7 +69,7 @@ export class Note {
     return 2 * diatonicPosition + addSharp - 1 - passingEnote
   }
 
-  semiToneDistance(note: Note): number {
+  distance(note: Note): number {
     const chromaticDistance = note.chromaticPosition() - this.chromaticPosition()
     const octaveDistance = note.octave() - this.octave() 
     return  chromaticDistance + octaveDistance * this.CHROMATIC_NOTES
