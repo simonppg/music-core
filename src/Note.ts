@@ -5,8 +5,8 @@ export class Note {
   private noteName: string
   private aOctave: number
   private isSharp: boolean
-  private DIATONIC_NOTES = 7
-  private CHROMATIC_NOTES = 12
+  private static DIATONIC_NOTES = 7
+  private static CHROMATIC_NOTES = 12
   private static A4 = '440.00'
   private static noteValidator = new NoteValidator()
 
@@ -53,7 +53,7 @@ export class Note {
   }
 
   diatonicPosition(): number {
-    return ((this.alphabeticPosition() + 4) % this.DIATONIC_NOTES) + 1
+    return ((this.alphabeticPosition() + 4) % Note.DIATONIC_NOTES) + 1
   }
 
   alphabeticPosition() {
@@ -72,7 +72,7 @@ export class Note {
   distance(note: Note): number {
     const chromaticDistance = note.chromaticPosition() - this.chromaticPosition()
     const octaveDistance = note.octave() - this.octave() 
-    return  chromaticDistance + octaveDistance * this.CHROMATIC_NOTES
+    return  chromaticDistance + octaveDistance * Note.CHROMATIC_NOTES
   }
 
 }
