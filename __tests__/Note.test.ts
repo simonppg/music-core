@@ -233,21 +233,27 @@ test('Calculate distance in semi-tones', () => {
 
 test('Shift notes', ()=>{
   const shifts = [
-    [1, 'C#0'],
-    [2, 'D0'],
-    [3, 'D#0'],
-    [4, 'E0'],
-    [5, 'F0'],
-    [6, 'F#0'],
-    [7, 'G0'],
-    [8, 'G#0'],
-    [9, 'A0'],
-    [10, 'A#0'],
-    [11, 'B0'],
+    // [-1, 'B3'],
+
+    [1, 'C#4'],
+    [2, 'D4'],
+    [3, 'D#4'],
+    [4, 'E4'],
+    [5, 'F4'],
+    [6, 'F#4'],
+    [7, 'G4'],
+    [8, 'G#4'],
+    [9, 'A4'],
+    [10, 'A#4'],
+    [11, 'B4'],
+
+    // Edge cases
+    [12, 'C5'],
+    [24, 'C6'],
   ]
 
   shifts.forEach(shift =>{
-    const c = new Note('C0')
+    const c = new Note('C4')
     const note = new Note(shift[1] as string)
 
     expect(c.shift(shift[0] as number).name()).toBe(note.name())

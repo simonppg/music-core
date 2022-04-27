@@ -77,10 +77,14 @@ export class Note {
   }
 
   shift(semiTones: number) : Note {
-    const newPos = this.chromaticPosition() + semiTones
+    const isNegative = semiTones < 0
+    const len = Note.NOTES.length
+    const cPos = this.chromaticPosition()
+    const remainPos = len - cPos
+    const newPos = (semiTones % len) + cPos
     const note = this.fromCromaticPosition(newPos)
     console.log({
-      chromaticPosition:this.chromaticPosition(),
+      len, cPos, remainPos, semiTones,newPos,
       note
     });
     
