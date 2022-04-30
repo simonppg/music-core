@@ -81,19 +81,11 @@ export class Note {
     const len = Note.NOTES.length
     let cPos = this.chromaticPosition()
     cPos = isNegative ? len - cPos + 1: cPos
-    const remainPos = len - cPos
     semiTones = isNegative ? semiTones * -1 : semiTones
     let newPos = (cPos + semiTones) % len 
     newPos = newPos === 0 ? len : newPos
-    console.log(newPos);
-    
     newPos = isNegative ? len - newPos + 1 : newPos
     const note = this.fromCromaticPosition(newPos)
-    console.log({
-      len, cPos, semiTones,newPos,
-      note
-    });
-    
     return new Note(note+0)
   }
 

@@ -231,7 +231,7 @@ test('Calculate distance in semi-tones', () => {
 
 })
 
-test('Shift notes', ()=>{
+test('Shift notes starting in C4', ()=>{
   const shifts = [
     // Edge cases
     [-25, 'B1'],
@@ -275,3 +275,46 @@ test('Shift notes', ()=>{
   })
 })
 
+test('Shift notes starting in B4', ()=>{
+  const shifts = [
+    // Edge cases
+    [-24, 'B1'],
+    [-12, 'B2'],
+
+    [-11, 'C4'],
+    [-10, 'C#4'],
+    [-9, 'D4'],
+    [-8, 'D#4'],
+    [-7, 'E4'],
+    [-6, 'F4'],
+    [-5, 'F#4'],
+    [-4, 'G4'],
+    [-3, 'G#4'],
+    [-2, 'A4'],
+    [-1, 'A#4'],
+
+    [1, 'C5'],
+    [2, 'C#5'],
+    [3, 'D5'],
+    [4, 'D#5'],
+    [5, 'E5'],
+    [6, 'F5'],
+    [7, 'F#5'],
+    [8, 'G5'],
+    [9, 'G#5'],
+    [10, 'A5'],
+    [11, 'A#5'],
+    [12, 'B5'],
+
+    // Edge cases
+    [13, 'C5'],
+    [25, 'C6'],
+  ]
+
+  shifts.forEach(shift =>{
+    const c = new Note('B4')
+    const note = new Note(shift[1] as string)
+
+    expect(c.shift(shift[0] as number).name()).toBe(note.name())
+  })
+})
