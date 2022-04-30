@@ -10,13 +10,26 @@ export class Note {
   private static A4 = '440.00'
   private static noteValidator = new NoteValidator()
 
-  constructor(note: string = 'A4') {
+  constructor(note: string | Frequency) {
+    if(note instanceof Frequency)
+      this.fromFrequency(note)
+    else if(typeof note === 'string')
+      this.fromNoteName(note)
+    else
+      this.fromNoteName('A4')
+  }
+
+  private fromFrequency(frequency: Frequency){
+
+  }
+
+  private fromNoteName(note: string) {
     const length = note.length
-    if(length < 2 || length > 3)
+    if (length < 2 || length > 3)
       throw new Error('InvalidArgumentException')
 
     this.noteName = note.charAt(0)
-    if(!Note.noteValidator.isValid(this.noteName))
+    if (!Note.noteValidator.isValid(this.noteName))
       throw new Error('InvalidArgumentException')
 
     const numberIndex = length === 2 ? 1 : 2
@@ -75,4 +88,15 @@ export class Note {
     return  chromaticDistance + octaveDistance * Note.CHROMATIC_NOTES
   }
 
+  shift(semiTones: number): Note {
+    const f1 = new Frequency(this.frequency())
+
+    const f2 = f1.shift(semiTones)
+
+    console.log({
+      f1, f2
+    });
+
+    return new Note(f2)
+  }
 }

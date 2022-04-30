@@ -1,3 +1,4 @@
+import {Frequency} from "../src/Frequency";
 import {Note} from "../src/Note";
 
 test('InvalidArgumentException', () => {
@@ -228,6 +229,22 @@ test('Calculate distance in semi-tones', () => {
 
     expect(a4.distance(note)).toBe(item[1])
   })
+
+})
+
+test('Create Notes from frequency', ()=>{
+
+  const note = new Note(new Frequency())
+
+  // expect(note.frequency()).toBe('440.00')
+
+})
+
+test('Shift notes', ()=>{
+  const srcNote = new Note('C0')
+  const targetNote = new Note('D0')
+
+  // expect(srcNote.shift(2).sciName()).toBe(targetNote.sciName())
 
 })
 
