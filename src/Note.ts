@@ -1,13 +1,15 @@
+import {Frequency} from "./Frequency"
 import {NoteValidator} from "./NoteValidator"
 
 export class Note {
   private noteName: string
   private aOctave: number
   private isSharp: boolean
-  private DIATONIC_NOTES = 7
-  private CHROMATIC_NOTES = 12
-  private A4 = 440.00
+  private static DIATONIC_NOTES = 7
+  private static CHROMATIC_NOTES = 12
+  private static A4 = '440.00'
   private static noteValidator = new NoteValidator()
+  private static NOTES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 
   constructor(note: string = 'A4') {
     const length = note.length
@@ -38,9 +40,9 @@ export class Note {
 
   frequency(): string {
     const a4 = new Note('A4')
-    const semiToneDistance = a4.semiToneDistance(this)
-    const frequency = this.A4 * Math.pow(2, semiToneDistance / 12)
-    return frequency.toFixed(2)
+    const semiTones = a4.distance(this)
+    const frequency = new Frequency(Note.A4)
+    return frequency.shift(semiTones).frequency()
   }
 
   isSameOctave(note: Note): boolean {
@@ -52,7 +54,7 @@ export class Note {
   }
 
   diatonicPosition(): number {
-    return ((this.alphabeticPosition() + 4) % this.DIATONIC_NOTES) + 1
+    return ((this.alphabeticPosition() + 4) % Note.DIATONIC_NOTES) + 1
   }
 
   alphabeticPosition() {
@@ -68,10 +70,26 @@ export class Note {
     return 2 * diatonicPosition + addSharp - 1 - passingEnote
   }
 
-  semiToneDistance(note: Note): number {
+  distance(note: Note): number {
     const chromaticDistance = note.chromaticPosition() - this.chromaticPosition()
     const octaveDistance = note.octave() - this.octave() 
-    return  chromaticDistance + octaveDistance * this.CHROMATIC_NOTES
+    return  chromaticDistance + octaveDistance * Note.CHROMATIC_NOTES
   }
 
+  shift(semiTones: number) : Note {
+    const isNegative = semiTones < 0
+    const len = Note.NOTES.length
+    let cPos = this.chromaticPosition()
+    cPos = isNegative ? len - cPos + 1: cPos
+    semiTones = isNegative ? semiTones * -1 : semiTones
+    let newPos = (cPos + semiTones) % len 
+    newPos = newPos === 0 ? len : newPos
+    newPos = isNegative ? len - newPos + 1 : newPos
+    const note = this.fromCromaticPosition(newPos)
+    return new Note(note+0)
+  }
+
+  private fromCromaticPosition(pos: number): string{
+    return Note.NOTES[pos-1]
+  }
 }
