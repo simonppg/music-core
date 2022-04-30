@@ -81,30 +81,10 @@ export class Note {
     const math = new Math()
     let cPos = this.chromaticPosition()
 
-    let newPos = cPos
-
-    if(semiTones < 0) {
-      newPos = this.negativeShift(cPos, semiTones)
-    }
-    else {
-      newPos = math.shift(Note.NOTES.length, cPos, semiTones)
-    }
+    let newPos = math.shift(Note.NOTES.length, cPos, semiTones)
 
     const note = this.fromCromaticPosition(newPos)
     return new Note(note+0)
-  }
-
-  private negativeShift(cPos: number, semiTones: number){
-    const math = new Math()
-    const len = Note.NOTES.length
-    cPos = len - cPos + 1
-    semiTones = semiTones * -1
-
-    let newPos = math.shift(len, cPos, semiTones)
-
-    newPos = len - newPos + 1
-
-    return newPos
   }
   
   private fromCromaticPosition(pos: number): string{
