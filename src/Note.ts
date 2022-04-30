@@ -9,21 +9,9 @@ export class Note {
   private static CHROMATIC_NOTES = 12
   private static A4 = '440.00'
   private static noteValidator = new NoteValidator()
+  private static NOTES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 
-  constructor(note: string | Frequency) {
-    if(note instanceof Frequency)
-      this.fromFrequency(note)
-    else if(typeof note === 'string')
-      this.fromNoteName(note)
-    else
-      this.fromNoteName('A4')
-  }
-
-  private fromFrequency(frequency: Frequency){
-
-  }
-
-  private fromNoteName(note: string) {
+  constructor(note: string = 'A4') {
     const length = note.length
     if (length < 2 || length > 3)
       throw new Error('InvalidArgumentException')
@@ -88,15 +76,20 @@ export class Note {
     return  chromaticDistance + octaveDistance * Note.CHROMATIC_NOTES
   }
 
-  shift(semiTones: number): Note {
-    const f1 = new Frequency(this.frequency())
+  shift(semiTones: number) : Note {
+    const isNegative = semiTones < 0
+    const len = Note.NOTES.length
+    let cPos = this.chromaticPosition()
+    cPos = isNegative ? len - cPos + 1: cPos
+    semiTones = isNegative ? semiTones * -1 : semiTones
+    let newPos = (cPos + semiTones) % len 
+    newPos = newPos === 0 ? len : newPos
+    newPos = isNegative ? len - newPos + 1 : newPos
+    const note = this.fromCromaticPosition(newPos)
+    return new Note(note+0)
+  }
 
-    const f2 = f1.shift(semiTones)
-
-    console.log({
-      f1, f2
-    });
-
-    return new Note(f2)
+  private fromCromaticPosition(pos: number): string{
+    return Note.NOTES[pos-1]
   }
 }
