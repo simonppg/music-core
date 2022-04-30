@@ -1,5 +1,9 @@
 import {Frequency} from '../src/Frequency'
 
+test('Default frequency is A4 440.00', ()=>{
+  expect(new Frequency().frequency()).toBe('440.00')
+})
+
 test('Shift frequency', ()=> {
   const precision = 0.01
   const A4 = new Frequency('440.00')
