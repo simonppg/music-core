@@ -1,4 +1,4 @@
-export const Degree = {
+export const Degrees = {
   I: 1,
   II: 2,
   III: 3,

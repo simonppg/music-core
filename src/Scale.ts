@@ -1,4 +1,3 @@
-import {Degree} from "./Degree"
 import {Note} from "./Note"
 
 export class Scale {
@@ -11,7 +10,7 @@ export class Scale {
   }
 
   degree(degree: number): string {
-    const scale = this.ionian()
+    const scale = this.generateScale(this.tonic, this.scale)
     let index = degree - 1
 
     index = index % scale.length
@@ -19,80 +18,35 @@ export class Scale {
     return scale[index]
   }
 
-  ionian(): string[] {
-    const steps = Array.from(this.scale)
-    let currentNote = this.tonic
-    const mode: string[] = []
+  mode(mode: number): string[] {
+    let scale = this.generateScale(this.tonic, this.scale)
+
+    scale = this.shiftBy(scale, mode - 1)
+
+    return scale
+  }
+
+  // TODO: move this to Math
+  private shiftBy(arr: any[], sliceOn: number) {
+    let len = arr.length;
+    sliceOn = sliceOn % len;
+    let leftSection = arr.slice(0, sliceOn);
+    let rightSection = arr.slice(sliceOn, len);
+
+    return [...rightSection, ...leftSection];
+  }
+
+  private generateScale(tonic: Note, scaleCode: readonly number[]) {
+    const steps = Array.from(scaleCode)
+    let currentNote = tonic
+    const scale: string[] = []
 
     steps.forEach(step => {
-      mode.push(currentNote.name())
+      scale.push(currentNote.name())
       currentNote = currentNote.shift(step)
     })
 
-    return mode
+    return scale
   }
 
-  dorian(): string[] {
-    const mode = this.ionian()
-    mode.push(mode.shift() as string)
-    return mode
-  }
-
-  phrygian(): string[] {
-    const mode = this.dorian()
-    mode.push(mode.shift() as string)
-    return mode
-  }
-
-  lydian(): string[] {
-    const mode = this.phrygian()
-    mode.push(mode.shift() as string)
-    return mode
-  }
-
-  mixolydian(): string[] {
-    const mode = this.lydian()
-    mode.push(mode.shift() as string)
-    return mode
-  }
-
-  aeolian(): string[] {
-    const mode = this.mixolydian()
-    mode.push(mode.shift() as string)
-    return mode
-  }
-
-  locria(): string[] {
-    const mode = this.aeolian()
-    mode.push(mode.shift() as string)
-    return mode
-  }
-
-  I(): string[] {
-    return this.ionian();
-  }
-
-  II(): string[] {
-    return this.dorian();
-  }
-
-  III(): string[] {
-    return this.phrygian();
-  }
-
-  IV(): string[] {
-    return this.lydian();
-  }
-
-  V(): string[] {
-    return this.mixolydian();
-  }
-
-  VI(): string[] {
-    return this.aeolian();
-  }
-
-  VII(): string[] {
-    return this.locria();
-  }
 }
