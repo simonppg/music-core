@@ -4,7 +4,6 @@ import {Degrees} from '../src/Degrees'
 import {Modes} from '../src/Modes'
 
 test('C Mayor scale degrees and modes', ()=>{
-
   const scale = new Scale('C', Scales.mayor)
 
   expect(scale.degree(Degrees.I)).toStrictEqual('C')
@@ -32,7 +31,6 @@ test('C Mayor scale degrees and modes', ()=>{
 })
 
 test('C# Mayor scale degrees and modes', ()=>{
-
   const scale = new Scale('C#', Scales.mayor)
 
   expect(scale.degree(Degrees.I)).toStrictEqual('C#')
@@ -59,3 +57,29 @@ test('C# Mayor scale degrees and modes', ()=>{
   expect(scale.mode(Modes.VIII)).toStrictEqual(['C#', 'D#', 'F', 'F#', 'G#', 'A#', 'C'])
 })
 
+test('C Mayor scale degrees and modes', ()=>{
+  const scale = new Scale('C', Scales.pentatonic)
+
+  expect(scale.degree(Degrees.I)).toStrictEqual('C')
+  expect(scale.degree(Degrees.II)).toStrictEqual('D')
+  expect(scale.degree(Degrees.III)).toStrictEqual('E')
+  expect(scale.degree(Degrees.IV)).toStrictEqual('G')
+  expect(scale.degree(Degrees.V)).toStrictEqual('A')
+  expect(scale.degree(Degrees.VI)).toStrictEqual('C')
+  expect(scale.degree(Degrees.VII)).toStrictEqual('D')
+  expect(scale.degree(Degrees.VIII)).toStrictEqual('E')
+  expect(scale.degree(Degrees.IX)).toStrictEqual('G')
+  expect(scale.degree(Degrees.X)).toStrictEqual('A')
+  expect(scale.degree(Degrees.XI)).toStrictEqual('C')
+  expect(scale.degree(Degrees.XII)).toStrictEqual('D')
+  expect(scale.degree(Degrees.XIII)).toStrictEqual('E')
+
+  expect(scale.mode(Modes.I)).toStrictEqual(['C', 'D', 'E', 'G', 'A'])
+  expect(scale.mode(Modes.II)).toStrictEqual(['D', 'E', 'G', 'A', 'C'])
+  expect(scale.mode(Modes.III)).toStrictEqual(['E', 'G', 'A', 'C', 'D'])
+  expect(scale.mode(Modes.IV)).toStrictEqual(['G', 'A', 'C', 'D', 'E'])
+  expect(scale.mode(Modes.V)).toStrictEqual(['A', 'C', 'D', 'E', 'G'])
+  expect(scale.mode(Modes.VI)).toStrictEqual(['C', 'D', 'E', 'G', 'A'])
+  expect(scale.mode(Modes.VII)).toStrictEqual(['D', 'E', 'G', 'A', 'C'])
+  expect(scale.mode(Modes.VIII)).toStrictEqual(['E', 'G', 'A', 'C', 'D'])
+})
