@@ -1,19 +1,16 @@
-import {Scales} from "./Scales"
 import {Note} from "./Note"
 
 export class Scale {
   private tonic: Note
-  private scale: Scales
+  private scale: number[]
 
-  private mayor = [2, 2, 1, 2, 2, 2, 1]
-
-  constructor(tonic: string, scale: Scales) {
+  constructor(tonic: string, scale: number[]) {
     this.tonic = new Note(tonic+"0")
     this.scale = scale
   }
 
   ionian(): string[] {
-    const steps = Array.from(this.mayor)
+    const steps = Array.from(this.scale)
     let currentNote = this.tonic
     const mode: string[] = []
 

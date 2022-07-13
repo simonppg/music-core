@@ -23,7 +23,7 @@ test('Mayor scale', ()=>{
     const mixolydian = item[4]
     const aeolian = item[5]
     const locria = item[6]
-    const scale = new Scale('C', Scales.MAYOR)
+    const scale = new Scale('C', Scales.mayor)
 
     expect(scale.ionian()).toStrictEqual(ionian)
     expect(scale.dorian()).toStrictEqual(dorian)
