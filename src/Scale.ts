@@ -12,44 +12,44 @@ export class Scale {
   ionian(): string[] {
     return ['C', 'D', 'E', 'F', 'G', 'A', 'B']
   }
-  dorian(): any {
+  dorian(): string[] {
     return ['D', 'E', 'F', 'G', 'A', 'B', 'C']
   }
-  phrygian(): any {
+  phrygian(): string[] {
     return ['E', 'F', 'G', 'A', 'B', 'C', 'D']
   }
-  lydian(): any {
+  lydian(): string[] {
     return ['F', 'G', 'A', 'B', 'C', 'D', 'E']
   }
-  mixolydian(): any {
+  mixolydian(): string[] {
     return ['G', 'A', 'B', 'C', 'D', 'E', 'F']
   }
-  aeolian(): any {
+  aeolian(): string[] {
     return ['A', 'B', 'C', 'D', 'E', 'F', 'G']
   }
-  locria(): any {
+  locria(): string[] {
     return ['B', 'C', 'D', 'E', 'F', 'G', 'A']
   }
 
-  I(): any {
-    return ['C', 'D', 'E', 'F', 'G', 'A', 'B']
+  I(): string[] {
+    return this.ionian();
   }
-  II(): any {
-    return ['D', 'E', 'F', 'G', 'A', 'B', 'C']
+  II(): string[] {
+    return this.dorian();
   }
-  III(): any {
-    return ['E', 'F', 'G', 'A', 'B', 'C', 'D']
+  III(): string[] {
+    return this.phrygian();
   }
-  IV(): any {
-    return ['F', 'G', 'A', 'B', 'C', 'D', 'E']
+  IV(): string[] {
+    return this.lydian();
   }
-  V(): any {
-    return ['G', 'A', 'B', 'C', 'D', 'E', 'F']
+  V(): string[] {
+    return this.mixolydian();
   }
-  VI(): any {
-    return ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+  VI(): string[] {
+    return this.aeolian();
   }
-  VII(): any {
-    return ['B', 'C', 'D', 'E', 'F', 'G', 'A']
+  VII(): string[] {
+    return this.locria();
   }
 }
