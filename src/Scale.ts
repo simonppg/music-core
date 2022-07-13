@@ -1,54 +1,90 @@
 import {Scales} from "./Scales"
+import {Note} from "./Note"
 
 export class Scale {
-  private tonic: string
+  private tonic: Note
   private scale: Scales
 
+  private mayor = [2, 2, 1, 2, 2, 2, 1]
+
   constructor(tonic: string, scale: Scales) {
-    this.tonic = tonic
+    this.tonic = new Note(tonic+"0")
     this.scale = scale
   }
 
   ionian(): string[] {
-    return ['C', 'D', 'E', 'F', 'G', 'A', 'B']
+    const steps = Array.from(this.mayor)
+    let currentNote = this.tonic
+    const mode: string[] = []
+
+    steps.forEach(step => {
+      mode.push(currentNote.name())
+      currentNote = currentNote.shift(step)
+    })
+
+    return mode
   }
+
   dorian(): string[] {
-    return ['D', 'E', 'F', 'G', 'A', 'B', 'C']
+    const mode = this.ionian()
+    mode.push(mode.shift())
+    return mode
   }
+
   phrygian(): string[] {
-    return ['E', 'F', 'G', 'A', 'B', 'C', 'D']
+    const mode = this.dorian()
+    mode.push(mode.shift())
+    return mode
   }
+
   lydian(): string[] {
-    return ['F', 'G', 'A', 'B', 'C', 'D', 'E']
+    const mode = this.phrygian()
+    mode.push(mode.shift())
+    return mode
   }
+
   mixolydian(): string[] {
-    return ['G', 'A', 'B', 'C', 'D', 'E', 'F']
+    const mode = this.lydian()
+    mode.push(mode.shift())
+    return mode
   }
+
   aeolian(): string[] {
-    return ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+    const mode = this.mixolydian()
+    mode.push(mode.shift())
+    return mode
   }
+
   locria(): string[] {
-    return ['B', 'C', 'D', 'E', 'F', 'G', 'A']
+    const mode = this.aeolian()
+    mode.push(mode.shift())
+    return mode
   }
 
   I(): string[] {
     return this.ionian();
   }
+
   II(): string[] {
     return this.dorian();
   }
+
   III(): string[] {
     return this.phrygian();
   }
+
   IV(): string[] {
     return this.lydian();
   }
+
   V(): string[] {
     return this.mixolydian();
   }
+
   VI(): string[] {
     return this.aeolian();
   }
+
   VII(): string[] {
     return this.locria();
   }
