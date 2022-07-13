@@ -1,3 +1,4 @@
+import {Degree} from "./Degree"
 import {Note} from "./Note"
 
 export class Scale {
@@ -7,6 +8,15 @@ export class Scale {
   constructor(tonic: string, scale: readonly number[]) {
     this.tonic = new Note(tonic+"0")
     this.scale = scale
+  }
+
+  degree(degree: number): string {
+    const scale = this.ionian()
+    let index = degree - 1
+
+    index = index % scale.length
+
+    return scale[index]
   }
 
   ionian(): string[] {

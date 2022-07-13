@@ -1,5 +1,6 @@
 import {Scale} from '../src/Scale'
 import {Scales} from '../src/Scales'
+import {Degree} from '../src/Degree'
 
 test('Mayor scale', ()=>{
   const scales = [
@@ -42,4 +43,22 @@ test('Mayor scale', ()=>{
     expect(scale.VII()).toStrictEqual(locria)
   });
 
+})
+
+test('Mayor scale degrees', ()=>{
+  const scale = new Scale('C', Scales.mayor)
+
+  expect(scale.degree(Degree.I)).toStrictEqual('C')
+  expect(scale.degree(Degree.II)).toStrictEqual('D')
+  expect(scale.degree(Degree.III)).toStrictEqual('E')
+  expect(scale.degree(Degree.IV)).toStrictEqual('F')
+  expect(scale.degree(Degree.V)).toStrictEqual('G')
+  expect(scale.degree(Degree.VI)).toStrictEqual('A')
+  expect(scale.degree(Degree.VII)).toStrictEqual('B')
+  expect(scale.degree(Degree.VIII)).toStrictEqual('C')
+  expect(scale.degree(Degree.IX)).toStrictEqual('D')
+  expect(scale.degree(Degree.X)).toStrictEqual('E')
+  expect(scale.degree(Degree.XI)).toStrictEqual('F')
+  expect(scale.degree(Degree.XII)).toStrictEqual('G')
+  expect(scale.degree(Degree.XIII)).toStrictEqual('A')
 })
