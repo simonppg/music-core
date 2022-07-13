@@ -27,37 +27,37 @@ export class Scale {
 
   dorian(): string[] {
     const mode = this.ionian()
-    mode.push(mode.shift())
+    mode.push(mode.shift() as string)
     return mode
   }
 
   phrygian(): string[] {
     const mode = this.dorian()
-    mode.push(mode.shift())
+    mode.push(mode.shift() as string)
     return mode
   }
 
   lydian(): string[] {
     const mode = this.phrygian()
-    mode.push(mode.shift())
+    mode.push(mode.shift() as string)
     return mode
   }
 
   mixolydian(): string[] {
     const mode = this.lydian()
-    mode.push(mode.shift())
+    mode.push(mode.shift() as string)
     return mode
   }
 
   aeolian(): string[] {
     const mode = this.mixolydian()
-    mode.push(mode.shift())
+    mode.push(mode.shift() as string)
     return mode
   }
 
   locria(): string[] {
     const mode = this.aeolian()
-    mode.push(mode.shift())
+    mode.push(mode.shift() as string)
     return mode
   }
 
