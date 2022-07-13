@@ -2,9 +2,9 @@ import {Note} from "./Note"
 
 export class Scale {
   private tonic: Note
-  private scale: number[]
+  private scale: readonly number[]
 
-  constructor(tonic: string, scale: number[]) {
+  constructor(tonic: string, scale: readonly number[]) {
     this.tonic = new Note(tonic+"0")
     this.scale = scale
   }
