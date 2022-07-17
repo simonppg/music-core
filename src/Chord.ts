@@ -7,7 +7,7 @@ export class Chord {
   private intervalFormula: readonly string[]
   private majorScale: Scale
 
-  constructor (note: string, intervalFormula: string[]) {
+  constructor (note: string, intervalFormula: readonly string[]) {
     this.majorScale = new Scale(note, Scales.mayor)
     this.intervalFormula = intervalFormula
   }
