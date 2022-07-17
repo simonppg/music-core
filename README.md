@@ -12,6 +12,7 @@ Music theory components
 * `frequency` returns the frequency of the note
 * `sciName` returns note name and the octave
 * `octave` returns the number of the octave
+* `isSameOctave` returns true if two notes are in the same octave
 
 ```typescript
 const aSharp = new Note('A#4')
