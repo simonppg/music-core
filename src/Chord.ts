@@ -22,7 +22,7 @@ export class Chord {
 
       chord.push(finalNote)
       return chord
-    }, [])
+    }, [] as string[])
 
   }
 }
