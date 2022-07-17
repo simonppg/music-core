@@ -1,3 +1,4 @@
 export const ChordsFormula = {
-  mayor: [1, 3, 5]
+  mayor: ['I', 'III', 'V'],
+  minor: ['I', 'III b', 'V']
 } as const
