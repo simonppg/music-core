@@ -8,8 +8,15 @@ Music theory components
 
 ## Note
 
-`name` will return the base name
+* `name` returns the note name
+* `frequency` returns the frequency of the note
+* `sciName` returns note name and the octave
+* `octave` returns the number of the octave
+
 ```typescript
-const cSharp = new Note('C#0')
-cSharp.name() // -> C
+const aSharp = new Note('A#4')
+aSharp.frequency() // -> '466.16'
+aSharp.name() // -> 'A#'
+aSharp.sciName() // -> 'A#4'
+aSharp.octave() // -> 4
 ```
