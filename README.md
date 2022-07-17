@@ -19,4 +19,8 @@ aSharp.frequency() // -> '466.16'
 aSharp.name() // -> 'A#'
 aSharp.sciName() // -> 'A#4'
 aSharp.octave() // -> 4
+const d4 = new Note('D4')
+const d3 = new Note('D3')
+aSharp.isSameOctave(d4) // -> true
+aSharp.isSameOctave(d3) // -> false
 ```
