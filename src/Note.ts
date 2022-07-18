@@ -1,6 +1,7 @@
 import {Frequency} from "./Frequency"
 import {Math} from "./Math"
 import {NoteValidator} from "./NoteValidator"
+import {Interval} from "./Interval"
 
 export class Note {
   private noteName: string
@@ -75,6 +76,20 @@ export class Note {
     const chromaticDistance = note.chromaticPosition() - this.chromaticPosition()
     const octaveDistance = note.octave() - this.octave() 
     return  chromaticDistance + octaveDistance * Note.CHROMATIC_NOTES
+  }
+
+  intervalsDistance(note: Note): any {
+    const semiTones = this.distance(note)
+
+    const names = [this.name(), note.name()]
+    const sameOctaveNotes = [new Note(names[0]+'0'), new Note(names[1]+'0')]
+    const dis = sameOctaveNotes[0].distance(sameOctaveNotes[1])
+    const chromaticDistance = note.chromaticPosition() - this.chromaticPosition()
+
+    console.log({names, sameOctaveNotes, dis, chromaticDistance});
+    
+
+    return new Interval(1)
   }
 
   shift(semiTones: number) : Note {

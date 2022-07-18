@@ -1,4 +1,5 @@
 import {Note} from "../src/Note";
+import {Interval} from "../src/Interval";
 
 test('InvalidArgumentException', () => {
   const t1 = () => {
@@ -227,6 +228,58 @@ test('Calculate distance in semi-tones', () => {
     const note = new Note(item[0])
 
     expect(a4.distance(note)).toBe(item[1])
+  })
+
+})
+
+test('Calculate distance in intervals', () => {
+  const notes = [
+    ['A5', new Interval(1)],
+    ['G3', new Interval(-1)],
+    // ['A#3', -11],
+    // ['B3', -10],
+    //
+    // ['C4', -9],
+    // ['C#4', -8],
+    // ['D4', -7],
+    // ['D#4', -6],
+    // ['E4', -5],
+    // ['F4', -4],
+    // ['F#4', -3],
+    // ['G4', -2],
+    // ['G#4', -1],
+    // ['A4', 0],
+    // ['A#4', 1],
+    // ['B4', 2],
+    //
+    // ['C5', 3],
+    // ['C#5', 4],
+    // ['D5', 5],
+    //
+    // Edge cases
+    // ['A0', -48],
+    // ['A8', 48],
+  ]
+
+  // Intevals
+  // prime            Perfect: 0st
+  // second           Major: 2st     Minor: 1st   Aug: 3st Dis: 0st
+  // thrid            Major: 4st     Minor: 3st   Aug: 5st Dis: 2st
+  // fourth           Perfect: 5st                Aug: 6st Dis: 4st
+  // fifth            Perfect: 7st                Aug: 8st Dis: 6st
+  // sixth            Major: 9st     Minor: 8st   Aug: 10st Dis: 7st
+  // seventh          Major: 11st    Monor: 10st  Aug: 12st Dis: 9st
+  // octave           Perfect: 12st               Aug: 13st Dis: 11st
+  //
+  // Compound intervals
+  // 2 octaves + Major seventh
+  // for more info https://www.omnicalculator.com/other/music-interval
+
+  notes.forEach((item) => {
+    const a4 = new Note('A4')
+    const note = new Note(item[0] as string)
+
+    expect(a4.intervalsDistance(note)).toStrictEqual(item[1])
   })
 
 })
