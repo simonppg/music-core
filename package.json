@@ -2,8 +2,8 @@
   "name": "music-core",
   "version": "1.0.0",
   "description": "",
-  "main": "lib/Note",
-  "typings": "lib/Note",
+  "main": "lib/Main",
+  "typings": "lib/Main",
   "scripts": {
     "build": "tsc -p .",
     "test": "jest"
