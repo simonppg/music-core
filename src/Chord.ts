@@ -1,5 +1,5 @@
 import {Scale} from './Scale'
-import {Scales} from './Scales'
+import {IntervalPattern} from './IntervalPattern'
 import {Math} from './Math'
 import {Note} from './Note'
 
@@ -8,7 +8,7 @@ export class Chord {
   private majorScale: Scale
 
   constructor (note: string, intervalFormula: readonly string[]) {
-    this.majorScale = new Scale(note, Scales.mayor)
+    this.majorScale = new Scale(note, IntervalPattern.mayor)
     this.intervalFormula = intervalFormula
   }
 

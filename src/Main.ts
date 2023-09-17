@@ -1,8 +1,8 @@
 import { Note } from './Note'
 import { Scale } from './Scale'
-import { Scales } from './Scales'
+import { IntervalPattern } from './IntervalPattern'
 import { Chord } from './Chord'
 
 export {
-  Note, Scale, Scales, Chord
+  Note, Scale, IntervalPattern, Chord
 }
