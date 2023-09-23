@@ -1,8 +1,8 @@
 import {Scale} from '../src/Scale'
-import {Scales} from '../src/Scales'
+import {IntervalPattern} from '../src/IntervalPattern'
 
 test('C Mayor scale degrees and modes', ()=>{
-  const scale = new Scale('C', Scales.mayor)
+  const scale = new Scale('C', IntervalPattern.mayor)
 
   expect(scale.degree(1)).toStrictEqual('C')
   expect(scale.degree(2)).toStrictEqual('D')
@@ -29,7 +29,7 @@ test('C Mayor scale degrees and modes', ()=>{
 })
 
 test('C# Mayor scale degrees and modes', ()=>{
-  const scale = new Scale('C#', Scales.mayor)
+  const scale = new Scale('C#', IntervalPattern.mayor)
 
   expect(scale.degree(1)).toStrictEqual('C#')
   expect(scale.degree(2)).toStrictEqual('D#')
@@ -56,7 +56,7 @@ test('C# Mayor scale degrees and modes', ()=>{
 })
 
 test('C Mayor scale degrees and modes', ()=>{
-  const scale = new Scale('C', Scales.pentatonic)
+  const scale = new Scale('C', IntervalPattern.pentatonic)
 
   expect(scale.degree(1)).toStrictEqual('C')
   expect(scale.degree(2)).toStrictEqual('D')
