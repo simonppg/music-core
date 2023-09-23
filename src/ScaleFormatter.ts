@@ -26,8 +26,8 @@ export class ScaleFormatter {
     }
 
     const num = res.shift()
-    if (num != undefined && num == 1)
-      res.push(numOfIntervals)
+    if (num != undefined && num > 0)
+      res.push(numOfIntervals + num - 1)
 
     return res
   }

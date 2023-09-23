@@ -30,3 +30,7 @@ test('Convert to IntervalPattern', () => {
   expect(formatter.toIntervalPattern(ScalesCode.locrian)).toStrictEqual(IntervalPattern.locrian)
 })
 
+test('C# scales', () => {
+  expect(formatter.toIntervalPattern(1742)).toStrictEqual([ 1, 1, 3, 1, 2, 1, 3 ])
+  expect(formatter.toIntervalPattern(1756)).toStrictEqual([ 1, 1, 2, 1, 2, 1, 4 ])
+})
