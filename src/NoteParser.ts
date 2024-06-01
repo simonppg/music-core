@@ -1,3 +1,4 @@
+import {Accidental} from "./Accidental";
 import {NoteDTO} from "./NoteDTO";
 
 export class NoteParser {
@@ -15,7 +16,7 @@ export class NoteParser {
     
         // Extract components from the matched groups
         const name = match[1];
-        const accidental = match[2] || undefined; // Accidental may be empty
+        const accidental = new Accidental(match[2]); // Accidental may be empty
         const octave = match[3] ? parseInt(match[3], 10) : 0; // Parse octave if present, otherwise set to 0
     
         // Create and return the NoteDTO object
@@ -24,5 +25,5 @@ export class NoteParser {
             accidental,
             octave
         };
-    }  
+    }
 }
