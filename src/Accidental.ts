@@ -5,8 +5,10 @@ export class Accidental {
         switch (accidentalString) {
             case "#":
                 this.type = AccidentalType.SHARP;
+                break
             case "b":
                 this.type = AccidentalType.FLAT;
+                break
             default:
                 this.type = AccidentalType.NATURAL;
         }
