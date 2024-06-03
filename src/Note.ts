@@ -64,9 +64,16 @@ export class Note {
 
   chromaticPosition(): number {
     const diatonicPosition = this.diatonicPosition()
-    const addSharp = this.accidental.isSharp() ? 1 : 0
     const passingEnote = diatonicPosition >= 4 ? 1 : 0
-    return 2 * diatonicPosition + addSharp - 1 - passingEnote
+    let position = 2 * diatonicPosition  - 1 - passingEnote
+
+    if(this.accidental.isSharp()) {
+      position += 1
+    } else if(this.accidental.isFlat()) {
+      position -= 1
+    }
+
+    return position
   }
 
   distance(note: Note): number {

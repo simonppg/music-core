@@ -52,7 +52,7 @@ test('Can create C#2 note', () => {
 test('Can create Cb2 note', () => {
   const note = new Note('Cb2')
 
-  expect(note.frequency()).toBe('65.41')
+  expect(note.frequency()).toBe('61.74')
   expect(note.name()).toBe('Cb')
   expect(note.sciName()).toBe('Cb2')
   expect(note.octave()).toBe(2)
@@ -61,7 +61,7 @@ test('Can create Cb2 note', () => {
 test('Can create Cb note', () => {
   const note = new Note('Cb')
 
-  expect(note.frequency()).toBe('16.35')
+  expect(note.frequency()).toBe('15.43')
   expect(note.name()).toBe('Cb')
   expect(note.sciName()).toBe('Cb0')
   expect(note.octave()).toBe(0)
@@ -109,6 +109,12 @@ test('Octaves frequency', () => {
     ['B6', '1975.53'],
     ['B7', '3951.07'],
     ['B8', '7902.13'],
+
+    // Accidentals
+    ['B1', '61.74'],
+    ['Cb2', '61.74'],
+    ['F#4', '369.99'],
+    ['Gb4', '369.99']
   ]
 
   notes.forEach(item => {
@@ -178,16 +184,16 @@ test('Diatonic position of two octaves', () => {
 test('Chromatic position of two octave', () => {
   const noteNumbers = [
     ['C0', 1],
-    ['C#0', 2],
+    ['C#0', 2], ['Db0', 2],
     ['D0', 3],
-    ['D#0', 4],
-    ['E0', 5],
+    ['D#0', 4], ['Eb0', 4],
+    ['E0', 5], ['Fb0', 5],
     ['F0', 6],
-    ['F#0', 7],
+    ['F#0', 7], ['Gb0', 7],
     ['G0', 8],
-    ['G#0', 9],
+    ['G#0', 9], ['Ab0', 9],
     ['A0', 10],
-    ['A#0', 11],
+    ['A#0', 11], ['Bb0', 11],
     ['B0', 12],
 
     ['C1', 1],
